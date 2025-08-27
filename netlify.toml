@@ -1,0 +1,23 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "https://www.theariesindia.com/*"
+  to = "https://theariesindia.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.theariesindia.com/*"
+  to = "https://theariesindia.com/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+

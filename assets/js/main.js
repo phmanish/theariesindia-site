@@ -11,6 +11,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const yearSpan = document.getElementById('year');
   if (yearSpan) yearSpan.textContent = String(new Date().getFullYear());
+
+  // Reveal on scroll
+  const revealEls = Array.from(document.querySelectorAll('.reveal'));
+  const onScroll = () => {
+    const trigger = window.innerHeight * 0.9;
+    revealEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < trigger) el.classList.add('visible');
+    });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 });
 
 
